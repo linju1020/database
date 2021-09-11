@@ -1,0 +1,29 @@
+version: '3.4'
+  
+services:
+  pgsql:
+    image: postgres:9.6.20-alpine
+    container_name: pgsql
+    ports:
+      - 5432:5432
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./postgresql/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=test
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=ljg159147apple+++
+    restart: always
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: mssql
+    ports:
+      - 1433:1433
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./mssql/data:/var/opt/mssql/data
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Enterprise
+      - SA_PASSWORD=ljg159147apple+++
+    restart: always
