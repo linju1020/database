@@ -1,5 +1,5 @@
 version: '3.4'
-  
+
 services:
   pgsql:
     image: postgres:9.6.20-alpine
@@ -26,4 +26,9 @@ services:
       - ACCEPT_EULA=Y
       - MSSQL_PID=Enterprise
       - SA_PASSWORD=ljg159147apple+++
+    deploy:
+      resources:
+        limits:
+          cpus: '0.60'
+          memory: 2000M
     restart: always
